@@ -2,35 +2,40 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 
-<BorderPane fx:id="mainContainer" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.omnidesk.controllers.MainController"
-            prefWidth="1024" prefHeight="768">
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.omnidesk.controllers.MainController">
 
+    <!-- LEFT SIDEBAR -->
     <left>
-        <VBox spacing="15" prefWidth="220" style="-fx-background-color: #161b22; -fx-padding: 20;">
-            <Label text="OmniDesk" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;">
-                <VBox.margin><Insets bottom="30"/></VBox.margin>
-            </Label>
+        <VBox fx:id="sidebar" spacing="10" prefWidth="220" style="-fx-background-color: #161b22; -fx-padding: 20;">
 
-            <Button text="Dashboard" maxWidth="Infinity" styleClass="accent" onAction="#loadDashboardView"/>
-            <Button text="Finances" maxWidth="Infinity" onAction="#loadFinancesView"/>
-            <Button text="Inventory" maxWidth="Infinity" onAction="#loadInventoryView"/>
-            <Button text="Tasks" maxWidth="Infinity" onAction="#loadTasksView"/>
-            <Button text="Activity" maxWidth="Infinity" onAction="#loadActivityView"/>
+            <!-- Header & Toggle -->
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <Button text="☰" styleClass="flat" onAction="#toggleSidebar" style="-fx-font-size: 18px; -fx-cursor: hand;"/>
+                <Label fx:id="logoLabel" text="OmniDesk" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #58a6ff;"/>
+            </HBox>
 
-            <Region VBox.vgrow="ALWAYS" />
-            <Button text="Settings" maxWidth="Infinity" onAction="#loadSettingsView"/>
+            <Region prefHeight="20"/>
+
+            <!-- Navigation Links with Icons -->
+            <Button fx:id="btnHome" text="🏠 Dashboard" maxWidth="Infinity" alignment="BASELINE_LEFT" styleClass="flat" onAction="#loadOverview"/>
+            <Button fx:id="btnFinance" text="💰 Finances" maxWidth="Infinity" alignment="BASELINE_LEFT" styleClass="flat" onAction="#loadFinancesView"/>
+            <Button fx:id="btnInventory" text="📦 Inventory" maxWidth="Infinity" alignment="BASELINE_LEFT" styleClass="flat" onAction="#loadInventoryView"/>
+            <Button fx:id="btnActivity" text="⏱ Activity" maxWidth="Infinity" alignment="BASELINE_LEFT" styleClass="flat" onAction="#loadActivityView"/>
+            <Button fx:id="btnTasks" text="✅ Tasks" maxWidth="Infinity" alignment="BASELINE_LEFT" styleClass="flat" onAction="#loadTasksView"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- Bottom Utilities -->
+            <Button fx:id="btnTheme" text="☀️ Light Mode" maxWidth="Infinity" alignment="BASELINE_LEFT" styleClass="flat" onAction="#toggleTheme"/>
+            <Button fx:id="btnSettings" text="⚙ Settings" maxWidth="Infinity" alignment="BASELINE_LEFT" styleClass="flat" onAction="#loadSettingsView"/>
         </VBox>
     </left>
 
+    <!-- DYNAMIC CONTENT AREA -->
     <center>
-        <VBox spacing="20" style="-fx-padding: 40; -fx-background-color: #0d1117;">
-            <Label text="Dashboard Overview" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
-            <Label text="Welcome to your offline workspace. Select a module on the left to begin."
-                   style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
-        </VBox>
+        <!-- The background color here acts as a fallback while views load -->
+        <StackPane fx:id="contentArea" style="-fx-background-color: #0d1117;"/>
     </center>
 
 </BorderPane>

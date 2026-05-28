@@ -1,62 +1,112 @@
 package com.omnidesk.controllers;
 
-import java.io.IOException;
-
-import javafx.event.ActionEvent;
+import atlantafx.base.theme.PrimerDark;
+import atlantafx.base.theme.PrimerLight;
+import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 public class MainController {
 
-    @FXML
-    private BorderPane mainContainer;
+    @FXML private VBox sidebar;
+    @FXML private StackPane contentArea;
+    @FXML private Label logoLabel;
+
+    @FXML private Button btnHome, btnFinance, btnInventory, btnActivity, btnTasks, btnTheme, btnSettings;
+
+    private boolean isSidebarExpanded = true;
+    private boolean isDarkMode = true;
 
     @FXML
     public void initialize() {
-        // Automatically load the Dashboard when the app starts!
-        loadView("/views/DashboardView.fxml");
+        // Load the Overview/Dashboard first by default
+        // loadOverview(); // We will create this file in Part 2!
+        loadActivityView(); // Defaulting to Activity for now so the screen isn't blank
     }
+
+    // --- VIEW ROUTING ---
+    @FXML
+    public void loadOverview() { /* We will build the Dashboard UI next! */ }
 
     @FXML
-    public void loadDashboardView(ActionEvent event) {
-        loadView("/views/DashboardView.fxml");
-    }
+    public void loadFinancesView() { loadView("/views/FinancesView.fxml"); }
 
     @FXML
-    public void loadTasksView(ActionEvent event) {
-        loadView("/views/TasksView.fxml");
-    }
+    public void loadInventoryView() { loadView("/views/InventoryView.fxml"); }
 
     @FXML
-    public void loadFinancesView(ActionEvent event) {
-        loadView("/views/FinanceView.fxml");
-    }
+    public void loadActivityView() { loadView("/views/ActivityView.fxml"); }
 
     @FXML
-    public void loadInventoryView(ActionEvent event) {
-        loadView("/views/InventoryView.fxml");
-    }
+    public void loadTasksView() { loadView("/views/TasksView.fxml"); }
 
     @FXML
-    public void loadActivityView(javafx.event.ActionEvent event) {
-        loadView("/views/ActivityView.fxml");
-    }
+    public void loadSettingsView() { loadView("/views/SettingsView.fxml"); }
 
-    @FXML
-    public void loadSettingsView(javafx.event.ActionEvent event) {
-        loadView("/views/SettingsView.fxml");
-    }
-
+    // Helper method to swap the center screen
     private void loadView(String fxmlPath) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Node view = loader.load();
-            mainContainer.setCenter(view);
-        } catch (IOException e) {
-            System.err.println("Failed to load view: " + fxmlPath);
+            Node view = FXMLLoader.load(getClass().getResource(fxmlPath));
+            contentArea.getChildren().clear();
+            contentArea.getChildren().add(view);
+        } catch (Exception e) {
             e.printStackTrace();
+            System.err.println("Failed to load view: " + fxmlPath);
+        }
+    }
+
+    // --- SIDEBAR SLIDER LOGIC ---
+    @FXML
+    public void toggleSidebar() {
+        isSidebarExpanded = !isSidebarExpanded;
+
+        if (isSidebarExpanded) {
+            sidebar.setPrefWidth(220);
+            logoLabel.setVisible(true);
+            logoLabel.setManaged(true);
+            setButtonText(btnHome, "🏠 Dashboard");
+            setButtonText(btnFinance, "💰 Finances");
+            setButtonText(btnInventory, "📦 Inventory");
+            setButtonText(btnActivity, "⏱ Activity");
+            setButtonText(btnTasks, "✅ Tasks");
+            setButtonText(btnTheme, isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode");
+            setButtonText(btnSettings, "⚙ Settings");
+        } else {
+            sidebar.setPrefWidth(60);
+            logoLabel.setVisible(false);
+            logoLabel.setManaged(false);
+            setButtonText(btnHome, "🏠");
+            setButtonText(btnFinance, "💰");
+            setButtonText(btnInventory, "📦");
+            setButtonText(btnActivity, "⏱");
+            setButtonText(btnTasks, "✅");
+            setButtonText(btnTheme, isDarkMode ? "☀️" : "🌙");
+            setButtonText(btnSettings, "⚙");
+        }
+    }
+
+    private void setButtonText(Button btn, String text) {
+        btn.setText(text);
+    }
+
+    // --- THEME ENGINE LOGIC ---
+    @FXML
+    public void toggleTheme() {
+        isDarkMode = !isDarkMode;
+
+        if (isDarkMode) {
+            Application.setUserAgentStylesheet(new PrimerDark().getUserAgentStylesheet());
+            if (isSidebarExpanded) btnTheme.setText("☀️ Light Mode");
+            else btnTheme.setText("☀️");
+        } else {
+            Application.setUserAgentStylesheet(new PrimerLight().getUserAgentStylesheet());
+            if (isSidebarExpanded) btnTheme.setText("🌙 Dark Mode");
+            else btnTheme.setText("🌙");
         }
     }
 }
