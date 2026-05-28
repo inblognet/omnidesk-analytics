@@ -33,11 +33,14 @@ public class Item {
         this.price = price;
     }
 
-    // Getters and Setters
+    // Getters
     public Long getId() { return id; }
     public String getName() { return name; }
     public Integer getQuantity() { return quantity; }
     public Double getPrice() { return price; }
 
+    // Setters
+    public void setName(String name) { this.name = name; }
     public void setQuantity(Integer quantity) { this.quantity = quantity; }
+    public void setPrice(Double price) { this.price = price; }
 }

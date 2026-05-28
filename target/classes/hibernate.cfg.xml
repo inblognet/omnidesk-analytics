@@ -10,7 +10,7 @@
 
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
 
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create</property>
 
         <mapping class="com.omnidesk.models.User"/>
         <mapping class="com.omnidesk.models.Task"/>

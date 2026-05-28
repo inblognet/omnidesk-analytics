@@ -4,8 +4,10 @@ com\omnidesk\services\ActivityMonitorService.class
 com\omnidesk\Main.class
 com\omnidesk\controllers\SettingsController.class
 com\omnidesk\controllers\InventoryController.class
+com\omnidesk\utils\ReportGenerator.class
 com\omnidesk\models\Item.class
 com\omnidesk\utils\NotificationUtil.class
+com\omnidesk\controllers\FinancesController.class
 com\omnidesk\config\HibernateUtil.class
 com\omnidesk\models\Task.class
 com\omnidesk\controllers\MainController.class
@@ -16,7 +18,6 @@ com\omnidesk\models\DailyUsage.class
 com\omnidesk\controllers\ActivityController.class
 com\omnidesk\services\InventoryService.class
 com\omnidesk\models\Transaction.class
-com\omnidesk\controllers\FinanceController.class
 com\omnidesk\services\FinanceService.class
 com\omnidesk\controllers\DashboardController.class
 com\omnidesk\services\TaskService.class

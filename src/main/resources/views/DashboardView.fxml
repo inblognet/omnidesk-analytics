@@ -2,43 +2,40 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.geometry.Insets?>
 
-<VBox spacing="20" style="-fx-padding: 40; -fx-background-color: #0d1117;"
+<VBox spacing="30" style="-fx-padding: 40;"
       xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.omnidesk.controllers.DashboardController">
 
-    <Label text="Dashboard Overview" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
-    <Label text="Your offline analytics at a glance." style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+    <VBox spacing="5">
+        <Label text="System Overview" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+        <Label text="Welcome back. Here is your daily productivity summary." style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+    </VBox>
 
     <HBox spacing="20">
+
         <VBox style="-fx-background-color: #161b22; -fx-padding: 20; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
             <Label text="Total Tasks" style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
-            <Label fx:id="totalTasksLabel" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #58a6ff;"/>
+            <Label fx:id="lblTasks" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #58a6ff;"/>
         </VBox>
 
         <VBox style="-fx-background-color: #161b22; -fx-padding: 20; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
-            <Label text="System Status" style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
-            <Label text="Offline &amp; Secure" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #3fb950;"/>
+            <Label text="Recorded Transactions" style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+            <Label fx:id="lblFinance" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #3fb950;"/>
         </VBox>
+
+        <VBox style="-fx-background-color: #161b22; -fx-padding: 20; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
+            <Label text="Most Used App Today" style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+            <Label fx:id="lblApp" text="None" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #f0883e;"/>
+        </VBox>
+
+        <VBox style="-fx-background-color: #161b22; -fx-padding: 20; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
+            <Label text="Total Inventory Items" style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+            <Label fx:id="lblInventory" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #d2a8ff;"/>
+        </VBox>
+
     </HBox>
 
-    <VBox style="-fx-background-color: #161b22; -fx-padding: 20; -fx-background-radius: 8;" VBox.vgrow="ALWAYS">
-        <Label text="Weekly Activity Activity" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-        <BarChart fx:id="activityChart" VBox.vgrow="ALWAYS">
-            <xAxis>
-                <CategoryAxis side="BOTTOM" />
-            </xAxis>
-            <yAxis>
-                <NumberAxis side="LEFT" />
-            </yAxis>
-        </BarChart>
-    </VBox>
-
-    <VBox style="-fx-background-color: #161b22; -fx-padding: 20; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
-            <Label text="Daily Activity Breakdown" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-            <PieChart fx:id="activityPieChart" VBox.vgrow="ALWAYS" />
-    </VBox>
+    <Region VBox.vgrow="ALWAYS"/>
 
 </VBox>

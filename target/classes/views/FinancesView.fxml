@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<VBox spacing="20" style="-fx-padding: 40; -fx-background-color: #0d1117;"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.omnidesk.controllers.FinancesController">
+
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Financial Ledger" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+            <Label text="Track income and expenses, update records, or remove errors." style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+        </VBox>
+        <VBox alignment="CENTER_RIGHT">
+            <Label text="Current Balance" style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+            <Label fx:id="balanceLabel" text="\$0.00" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #3fb950;"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color: #161b22; -fx-padding: 20; -fx-background-radius: 8;">
+        <ComboBox fx:id="typeComboBox" promptText="Type" prefWidth="120" />
+        <TextField fx:id="descriptionField" promptText="Description (e.g., Groceries)" HBox.hgrow="ALWAYS" />
+        <TextField fx:id="amountField" promptText="Amount (\$)" prefWidth="100" />
+
+        <Button text="Add" styleClass="success" minWidth="70" onAction="#handleAddTransaction"/>
+        <Button text="Update" styleClass="accent" minWidth="70" onAction="#handleUpdateTransaction"/>
+        <Button text="Delete" styleClass="danger" minWidth="70" onAction="#handleDeleteTransaction"/>
+    </HBox>
+
+    <TableView fx:id="financeTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="Date" prefWidth="180">
+                <cellValueFactory><PropertyValueFactory property="createdAt" /></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Type" prefWidth="100">
+                <cellValueFactory><PropertyValueFactory property="type" /></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Description" prefWidth="300">
+                <cellValueFactory><PropertyValueFactory property="description" /></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Amount (\$)" prefWidth="120">
+                <cellValueFactory><PropertyValueFactory property="amount" /></cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+</VBox>

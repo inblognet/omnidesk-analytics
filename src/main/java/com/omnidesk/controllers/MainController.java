@@ -24,14 +24,15 @@ public class MainController {
 
     @FXML
     public void initialize() {
-        // Load the Overview/Dashboard first by default
-        // loadOverview(); // We will create this file in Part 2!
-        loadActivityView(); // Defaulting to Activity for now so the screen isn't blank
+        // Now that the Dashboard is built, we load it as the default home screen!
+        loadOverview();
     }
 
     // --- VIEW ROUTING ---
     @FXML
-    public void loadOverview() { /* We will build the Dashboard UI next! */ }
+    public void loadOverview() {
+        loadView("/views/DashboardView.fxml");
+    }
 
     @FXML
     public void loadFinancesView() { loadView("/views/FinancesView.fxml"); }

@@ -21,6 +21,12 @@ public class Task {
     @Column(nullable = false)
     private String title;
 
+    @Column(nullable = false)
+    private String priority; // e.g., "High", "Medium", "Low"
+
+    @Column(nullable = false)
+    private String status; // e.g., "Pending", "Completed"
+
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
@@ -29,16 +35,24 @@ public class Task {
         createdAt = LocalDateTime.now();
     }
 
-    // Constructor
+    // Constructors
     public Task() {}
 
-    public Task(String title) {
+    public Task(String title, String priority, String status) {
         this.title = title;
+        this.priority = priority;
+        this.status = status;
     }
 
-    // Getters and Setters
+    // --- GETTERS ---
     public Long getId() { return id; }
     public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
+    public String getPriority() { return priority; }
+    public String getStatus() { return status; }
     public LocalDateTime getCreatedAt() { return createdAt; }
+
+    // --- SETTERS (Required for Editing) ---
+    public void setTitle(String title) { this.title = title; }
+    public void setPriority(String priority) { this.priority = priority; }
+    public void setStatus(String status) { this.status = status; }
 }

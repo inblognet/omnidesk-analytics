@@ -50,4 +50,9 @@ public class Transaction {
     public Double getAmount() { return amount; }
     public String getDescription() { return description; }
     public LocalDateTime getCreatedAt() { return createdAt; }
+
+    // --- SETTERS (Required for Editing) ---
+    public void setType(String type) { this.type = type; }
+    public void setAmount(Double amount) { this.amount = amount; }
+    public void setDescription(String description) { this.description = description; }
 }
