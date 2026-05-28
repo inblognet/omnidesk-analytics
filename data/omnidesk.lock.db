@@ -1,0 +1,6 @@
+#FileLock
+#Thu May 28 08:32:11 IST 2026
+hostName=seec.bbrouter
+id=19e6c8849351654d824cc868cc581e627ae89a78418
+method=file
+server=192.168.1.9\:61050

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20" style="-fx-padding: 40; -fx-background-color: #0d1117;"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.omnidesk.controllers.TasksController">
+
+    <Label text="Task Management" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+    <Label text="Organize your daily activities." style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+
+    <HBox spacing="10">
+        <TextField fx:id="taskInputField" promptText="Enter a new task..." HBox.hgrow="ALWAYS" />
+        <Button text="Add Task" styleClass="success" onAction="#handleAddTask"/>
+    </HBox>
+
+    <ListView fx:id="taskListView" VBox.vgrow="ALWAYS" />
+
+</VBox>

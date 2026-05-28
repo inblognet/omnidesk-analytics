@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<VBox spacing="20" style="-fx-padding: 40; -fx-background-color: #0d1117;"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.omnidesk.controllers.FinanceController">
+
+    <Label text="Financial Overview" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+
+    <VBox style="-fx-background-color: #161b22; -fx-padding: 20; -fx-background-radius: 8;">
+        <Label text="Net Balance" style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+        <Label fx:id="balanceLabel" text="0.00" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #3fb950;"/>
+    </VBox>
+
+    <HBox spacing="10">
+        <ComboBox fx:id="typeComboBox" promptText="Type" prefWidth="120">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="INCOME" />
+                    <String fx:value="EXPENSE" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+
+        <TextField fx:id="amountField" promptText="Amount (e.g. 50.00)" prefWidth="150" />
+        <TextField fx:id="descriptionField" promptText="Description..." HBox.hgrow="ALWAYS" />
+
+        <Button text="Save Transaction" styleClass="accent" onAction="#handleAddTransaction"/>
+    </HBox>
+
+    <Label text="Recent Transactions" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    <ListView fx:id="transactionListView" VBox.vgrow="ALWAYS" style="-fx-font-family: monospace; -fx-font-size: 14px;"/>
+
+</VBox>

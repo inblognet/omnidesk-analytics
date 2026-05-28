@@ -1,0 +1,23 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">org.h2.Driver</property>
+        <property name="connection.url">jdbc:h2:file:./data/omnidesk;AUTO_SERVER=TRUE</property>
+        <property name="connection.username">sa</property>
+        <property name="connection.password"></property>
+
+        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+
+        <property name="hbm2ddl.auto">update</property>
+
+        <mapping class="com.omnidesk.models.User"/>
+        <mapping class="com.omnidesk.models.Task"/>
+        <mapping class="com.omnidesk.models.Transaction"/>
+        <mapping class="com.omnidesk.models.Item"/>
+        <mapping class="com.omnidesk.models.AppLimit"/>
+        <mapping class="com.omnidesk.models.DailyUsage"/>
+        <mapping class="com.omnidesk.models.SearchLog"/>
+    </session-factory>
+</hibernate-configuration>

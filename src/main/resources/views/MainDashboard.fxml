@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane fx:id="mainContainer" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.omnidesk.controllers.MainController"
+            prefWidth="1024" prefHeight="768">
+
+    <left>
+        <VBox spacing="15" prefWidth="220" style="-fx-background-color: #161b22; -fx-padding: 20;">
+            <Label text="OmniDesk" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;">
+                <VBox.margin><Insets bottom="30"/></VBox.margin>
+            </Label>
+
+            <Button text="Dashboard" maxWidth="Infinity" styleClass="accent" onAction="#loadDashboardView"/>
+            <Button text="Finances" maxWidth="Infinity" onAction="#loadFinancesView"/>
+            <Button text="Inventory" maxWidth="Infinity" onAction="#loadInventoryView"/>
+            <Button text="Tasks" maxWidth="Infinity" onAction="#loadTasksView"/>
+            <Button text="Activity" maxWidth="Infinity" onAction="#loadActivityView"/>
+
+            <Region VBox.vgrow="ALWAYS" />
+            <Button text="Settings" maxWidth="Infinity" onAction="#loadSettingsView"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="20" style="-fx-padding: 40; -fx-background-color: #0d1117;">
+            <Label text="Dashboard Overview" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+            <Label text="Welcome to your offline workspace. Select a module on the left to begin."
+                   style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+        </VBox>
+    </center>
+
+</BorderPane>

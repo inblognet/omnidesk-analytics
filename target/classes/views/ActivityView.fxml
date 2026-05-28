@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<VBox spacing="20" style="-fx-padding: 40; -fx-background-color: #0d1117;"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.omnidesk.controllers.ActivityController">
+
+    <Label text="Activity Tracker &amp; Limits" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+    <Label text="Set time limits for specific apps and view your daily usage." style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+
+    <HBox spacing="40" VBox.vgrow="ALWAYS">
+
+        <VBox spacing="15" HBox.hgrow="ALWAYS" prefWidth="300">
+            <Label text="Set App Time Limit" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+            <HBox spacing="10">
+                <TextField fx:id="appNameField" promptText="e.g., Google Chrome" HBox.hgrow="ALWAYS" />
+                <TextField fx:id="limitField" promptText="Mins" prefWidth="80" />
+                <Button text="Save" styleClass="accent" minWidth="60" onAction="#handleSaveLimit"/>
+                <Button text="Delete" styleClass="danger" minWidth="60" onAction="#handleDeleteLimit"/>
+            </HBox>
+
+            <Label text="Active Limits (Click to Edit/Delete)" style="-fx-font-size: 14px; -fx-text-fill: gray;"/>
+            <ListView fx:id="limitsListView" VBox.vgrow="ALWAYS" />
+        </VBox>
+
+        <VBox spacing="15" HBox.hgrow="ALWAYS" prefWidth="400">
+
+            <VBox spacing="10" style="-fx-background-color: #161b22; -fx-padding: 20; -fx-background-radius: 8;" VBox.vgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" spacing="20">
+                    <Label text="Today's OS Usage" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                    <Button text="Refresh Data" onAction="#refreshChart"/>
+                </HBox>
+                <PieChart fx:id="activityPieChart" VBox.vgrow="ALWAYS" />
+            </VBox>
+
+            <VBox spacing="10" style="-fx-background-color: #161b22; -fx-padding: 20; -fx-background-radius: 8;" VBox.vgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" spacing="20">
+                    <Label text="Recent Internet Searches" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                    <Button text="Refresh Searches" onAction="#refreshSearches"/>
+                </HBox>
+                <ListView fx:id="searchesListView" VBox.vgrow="ALWAYS" style="-fx-font-size: 14px;"/>
+            </VBox>
+
+        </VBox>
+
+    </HBox>
+
+</VBox>
