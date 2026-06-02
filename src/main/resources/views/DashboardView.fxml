@@ -9,28 +9,28 @@
 
     <VBox spacing="5">
         <Label text="System Overview" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
-        <Label text="Welcome back. Here is your daily productivity summary." style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+        <Label text="Welcome back. Here is your daily productivity summary." style="-fx-text-fill: -color-fg-muted; -fx-font-size: 14px;"/>
     </VBox>
 
     <HBox spacing="20">
 
-        <VBox style="-fx-background-color: #161b22; -fx-padding: 20; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
-            <Label text="Total Tasks" style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+        <VBox style="-fx-background-color: -color-bg-subtle; -fx-padding: 20; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
+            <Label text="Total Tasks" style="-fx-text-fill: -color-fg-muted; -fx-font-size: 14px;"/>
             <Label fx:id="lblTasks" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #58a6ff;"/>
         </VBox>
 
-        <VBox style="-fx-background-color: #161b22; -fx-padding: 20; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
-            <Label text="Recorded Transactions" style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+        <VBox style="-fx-background-color: -color-bg-subtle; -fx-padding: 20; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
+            <Label text="Recorded Transactions" style="-fx-text-fill: -color-fg-muted; -fx-font-size: 14px;"/>
             <Label fx:id="lblFinance" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #3fb950;"/>
         </VBox>
 
-        <VBox style="-fx-background-color: #161b22; -fx-padding: 20; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
-            <Label text="Most Used App Today" style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+        <VBox style="-fx-background-color: -color-bg-subtle; -fx-padding: 20; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
+            <Label text="Most Used App Today" style="-fx-text-fill: -color-fg-muted; -fx-font-size: 14px;"/>
             <Label fx:id="lblApp" text="None" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #f0883e;"/>
         </VBox>
 
-        <VBox style="-fx-background-color: #161b22; -fx-padding: 20; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
-            <Label text="Total Inventory Items" style="-fx-text-fill: gray; -fx-font-size: 14px;"/>
+        <VBox style="-fx-background-color: -color-bg-subtle; -fx-padding: 20; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
+            <Label text="Total Inventory Items" style="-fx-text-fill: -color-fg-muted; -fx-font-size: 14px;"/>
             <Label fx:id="lblInventory" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #d2a8ff;"/>
         </VBox>
 

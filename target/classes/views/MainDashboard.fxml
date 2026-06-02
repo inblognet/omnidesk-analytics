@@ -5,11 +5,9 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.omnidesk.controllers.MainController">
 
-    <!-- LEFT SIDEBAR -->
     <left>
-        <VBox fx:id="sidebar" spacing="10" prefWidth="220" style="-fx-background-color: #161b22; -fx-padding: 20;">
+        <VBox fx:id="sidebar" spacing="10" prefWidth="220" style="-fx-background-color: -color-bg-subtle; -fx-padding: 20;">
 
-            <!-- Header & Toggle -->
             <HBox alignment="CENTER_LEFT" spacing="15">
                 <Button text="☰" styleClass="flat" onAction="#toggleSidebar" style="-fx-font-size: 18px; -fx-cursor: hand;"/>
                 <Label fx:id="logoLabel" text="OmniDesk" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #58a6ff;"/>
@@ -17,7 +15,6 @@
 
             <Region prefHeight="20"/>
 
-            <!-- Navigation Links with Icons -->
             <Button fx:id="btnHome" text="🏠 Dashboard" maxWidth="Infinity" alignment="BASELINE_LEFT" styleClass="flat" onAction="#loadOverview"/>
             <Button fx:id="btnFinance" text="💰 Finances" maxWidth="Infinity" alignment="BASELINE_LEFT" styleClass="flat" onAction="#loadFinancesView"/>
             <Button fx:id="btnInventory" text="📦 Inventory" maxWidth="Infinity" alignment="BASELINE_LEFT" styleClass="flat" onAction="#loadInventoryView"/>
@@ -26,16 +23,13 @@
 
             <Region VBox.vgrow="ALWAYS"/>
 
-            <!-- Bottom Utilities -->
             <Button fx:id="btnTheme" text="☀️ Light Mode" maxWidth="Infinity" alignment="BASELINE_LEFT" styleClass="flat" onAction="#toggleTheme"/>
             <Button fx:id="btnSettings" text="⚙ Settings" maxWidth="Infinity" alignment="BASELINE_LEFT" styleClass="flat" onAction="#loadSettingsView"/>
         </VBox>
     </left>
 
-    <!-- DYNAMIC CONTENT AREA -->
     <center>
-        <!-- The background color here acts as a fallback while views load -->
-        <StackPane fx:id="contentArea" style="-fx-background-color: #0d1117;"/>
+        <StackPane fx:id="contentArea" style="-fx-background-color: -color-bg-default;"/>
     </center>
 
 </BorderPane>
